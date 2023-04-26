@@ -1,0 +1,35 @@
+{
+	"name": "cpp-getter-setter",
+	"description": "Cpp Getter and Setter Generator",
+	"version": "0.0.2",
+	"publisher": "jngu",
+	"engines": {
+		"vscode": "^1.74.0"
+	},
+	"activationEvents": [],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.generate_getter",
+				"title": "Generate Getter"
+			},
+			{
+				"command": "extension.generate_setter",
+				"title": "Generate Setter"
+			},
+			{
+				"command": "extension.generate_getter_setter",
+				"title": "Generate Getter And Setter"
+			}
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com:jng-u/cpp-getter-setter-generator.git"
+	},
+	"scripts": {},
+	"devDependencies": {
+		"@types/vscode": "^1.73.0"
+	}
+}
