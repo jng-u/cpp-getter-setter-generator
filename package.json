@@ -1,7 +1,7 @@
 {
 	"name": "cpp-getter-setter",
 	"description": "Cpp Getter and Setter Generator",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "jngu",
 	"engines": {
 		"vscode": "^1.74.0"

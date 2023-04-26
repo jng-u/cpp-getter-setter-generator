@@ -6,4 +6,4 @@
 4. Generate getter/setter code to clipboard
 5. Paste code! 
 
-![example](sample/test.gif)
+![example](https://raw.githubusercontent.com/jng-u/cpp-getter-setter-generator/master/sample/test.gif)
