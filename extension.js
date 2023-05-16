@@ -37,10 +37,18 @@ function activate(context) {
                 let vartype = line.substring(0, split_index);
                 let vars = line.substring(split_index + 1, line.length - 1).split(',');
                 for (let _var of vars) {
-                    _var = _var.trim();
+                    _var = _var.replaceAll(' ', '');
+                    let prefix = '';
+                    let pointer_prefix_pos = _var.lastIndexOf('*');
+                    let reference_prefix_pos = _var.lastIndexOf('&');
+                    if (pointer_prefix > 0 || reference_prefix > 0) {
+                        let prefix_pos = (pointer_prefix_pos > reference_prefix_pos)? pointer_prefix_pos : reference_prefix_pos;
+                        prefix = _var.substring(0, prefix_pos);
+                        _var = _var.substring(prefix_pos+1, _var.length);
+                    }
                     if (_var.endsWith(')'))
                         _var = _var.substring(0, _var.indexOf('('));
-                    getter_string += 'inline ' + vartype + ' get_' + _var + '() const { return ' + _var + '; }\n';
+                    getter_string += 'inline ' + vartype + prefix + ' get_' + _var + '() const { return ' + _var + '; }\n';
                 }
             }
             vscode.env.clipboard.writeText(getter_string);
@@ -64,7 +72,7 @@ function activate(context) {
                 let vartype = line.substring(0, split_index);
                 let vars = line.substring(split_index + 1, line.length - 1).split(',');
                 for (let _var of vars) {
-                    _var = _var.trim();
+                    _var = _var.replaceAll(' ', '');
                     if (_var.endsWith(')'))
                         _var = _var.substring(0, _var.indexOf('('));
                     setter_string += 'void set_' + _var + '(const ' + vartype + ' &' + _var + ') {\n this->' + _var + ' = ' + _var + '; \n}\n';
