@@ -7,3 +7,6 @@
 5. Paste code! 
 
 ![example](https://raw.githubusercontent.com/jng-u/cpp-getter-setter-generator/master/sample/test.gif)
+
+---
+- It may not properly work for reference variables.
