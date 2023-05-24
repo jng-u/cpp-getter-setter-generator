@@ -35,6 +35,10 @@ function activate(context) {
             let vars = line.substring(split_index + 1, line.length - 1).split(',');
             for (let _var of vars) {
                 _var = _var.replaceAll(' ', '');
+                
+                let postfix_pos = _var.indexOf('=');
+                if (postfix_pos >= 0) _var = _var.substring(0, postfix_pos);
+
                 let prefix = '';
                 let pointer_prefix_pos = _var.lastIndexOf('*');
                 let reference_prefix_pos = _var.lastIndexOf('&');
@@ -43,6 +47,7 @@ function activate(context) {
                     prefix = _var.substring(0, prefix_pos+1);
                     _var = _var.substring(prefix_pos+1, _var.length);
                 }
+
                 if (_var.endsWith(')'))
                     _var = _var.substring(0, _var.indexOf('('));
                 getter_string += 'inline ' + vartype + prefix + ' get_' + _var + '() const { return ' + _var + '; }\n';
@@ -64,6 +69,10 @@ function activate(context) {
             let vars = line.substring(split_index + 1, line.length - 1).split(',');
             for (let _var of vars) {
                 _var = _var.replaceAll(' ', '');
+                
+                let postfix_pos = _var.indexOf('=');
+                if (postfix_pos >= 0) _var = _var.substring(0, postfix_pos);
+
                 let prefix = '';
                 let pointer_prefix_pos = _var.lastIndexOf('*');
                 let reference_prefix_pos = _var.lastIndexOf('&');
