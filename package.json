@@ -12,15 +12,15 @@
 		"commands": [
 			{
 				"command": "extension.generate_getter",
-				"title": "Generate Getter"
+				"title": "CppGetterSetter: Generate Getter"
 			},
 			{
 				"command": "extension.generate_setter",
-				"title": "Generate Setter"
+				"title": "CppGetterSetter: Generate Setter"
 			},
 			{
 				"command": "extension.generate_getter_setter",
-				"title": "Generate Getter And Setter"
+				"title": "CppGetterSetter: Generate Getter And Setter"
 			}
 		]
 	},
